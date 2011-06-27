@@ -85,7 +85,7 @@ THE SOFTWARE.
             
                 if (j === 1) {
                     if (r !== 0) {
-                        arr.unshift(parseInt(r, 10) * 10);
+                        arr.unshift(r * 10);
                     }
                 } else if (j === 2) {
                     if (r !== 0) {
