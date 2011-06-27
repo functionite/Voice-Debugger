@@ -108,15 +108,17 @@ THE SOFTWARE.
         if (typeof options.line !== "undefined" && typeof options.msg === "string") {
             window.setTimeout(function() {
                 var lines = prepareLines(options.line);
-                var callback = function() {
-                    window.setTimeout(function() {
-                        audio.src = path + lines.shift() + format;
-                        audio.play();
-                    }, 100);
-                };
-                audio.addEventListener("ended", callback, false);
-                audio.src = path + getErrorType(options.msg) + format;
-                audio.play();
+                if (lines.length) {
+                    var callback = function() {
+                        window.setTimeout(function() {
+                            audio.src = path + lines.shift() + format;
+                            audio.play();
+                        }, 100);
+                    };
+                    audio.addEventListener("ended", callback, false);
+                    audio.src = path + getErrorType(options.msg) + format;
+                    audio.play();
+                }
             }, 500);
         }
     };
