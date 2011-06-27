@@ -119,15 +119,8 @@ THE SOFTWARE.
                     audio.src = path + getErrorType(options.msg) + format;
                     audio.play();
                 }
-            }, 500);
+            }, 600);
         }
-    };
-    
-    window.onerror = function() {
-        play({
-            line: arguments[2],
-            msg: arguments[0]
-        });
     };
     
     window.onload = function() {
@@ -138,4 +131,12 @@ THE SOFTWARE.
     window.onunload = function() {
         audio = null;
     };
+     
+    window.onerror = function() {
+        play({
+            line: arguments[2],
+            msg: arguments[0]
+        });
+    };
+
 })();
